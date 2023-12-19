@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/2290523060.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="carousel-container">
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/302549/pexels-photo-302549.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/33688/delicate-arch-night-stars-landscape.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+  <div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+</div>
+
+<button id="prev-btn">&lt;</button>
+<button id="next-btn">&gt;</button>
+
+<script>
+  const container = document.getElementById('carousel-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const translateValue = -currentIndex * 100;
+    container.style.transform = `translateX(${translateValue}vw)`;
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + 6) % 6;
+    updateCarousel();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % 6;
+    updateCarousel();
+  }
+
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+</script>
+
+</body>
+</html>
